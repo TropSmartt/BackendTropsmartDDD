@@ -19,6 +19,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 @EnableJpaAuditing
@@ -69,20 +71,13 @@ public class TropsmartBackendApplication {
     public class SecurityConfiguration {
 
         @Bean
-        void corsConfigurationSource() {
-
-            CorsConfiguration config = new CorsConfiguration();
-            config.setAllowCredentials(true);
-            config.addAllowedOrigin("*");
-            config.addAllowedHeader("*");
-            config.addAllowedMethod("OPTIONS");
-            config.addAllowedMethod("GET");
-            config.addAllowedMethod("POST");
-            config.addAllowedMethod("PUT");
-            config.addAllowedMethod("DELETE");
-            UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-            source.registerCorsConfiguration("/**", config);
-
+        public WebMvcConfigurer corsConfigurer() {
+            return new WebMvcConfigurer() {
+                @Override
+                public void addCorsMappings(CorsRegistry registry) {
+                    registry.addMapping("/**").allowedOrigins("*");
+                }
+            };
         }
 
 
