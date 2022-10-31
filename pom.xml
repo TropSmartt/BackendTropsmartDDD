@@ -48,12 +48,12 @@
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
-            <artifactId>postgresql</artifactId>
+            <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
         <dependency>
