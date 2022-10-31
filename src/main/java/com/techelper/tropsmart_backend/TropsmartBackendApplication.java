@@ -63,7 +63,6 @@ public class TropsmartBackendApplication {
     public ModelMapper modelMapper() {return new ModelMapper();}
 
     @Autowired
-
     private JwtAuthEntryPoint authEntryPoint;
 
     @EnableWebSecurity
