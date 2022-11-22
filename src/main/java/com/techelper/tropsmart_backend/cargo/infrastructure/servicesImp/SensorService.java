@@ -25,6 +25,7 @@ public class SensorService implements ISensorService {
 
     @Override
     public SensorResponse setSensorInfo(int cargoId) {
+
         return null;
     }
 
